@@ -1,11 +1,31 @@
 var config = require('config'),
     mongo = require('mongodb'), // include the mongodb module
-    serverInstance = new mongo.Server(config.get('Translate.dbConfig.host'), 
-                                        config.get('Translate.dbConfig.port'), 
-                                        {auto_reconnect: true}); // create a server instance
- 
-var dbName = config.get('Translate.dbConfig.dbName'), // retrieve a database reference
-    db = new mongo.Db(dbName, serverInstance); 
+    host,
+    port,
+    dbName,
+    strJSON; 
+
+// retrieve a database reference and server instance
+switch(config.get('Translate.envi')) {
+    case 'test':
+        dbName = config.get('Translate.testDBConfig.dbName');
+        host = config.get('Translate.testDBConfig.host');
+        port = config.get('Translate.testDBConfig.port');
+        break;
+    case 'prod':
+        dbName = config.get('Translate.prodDBConfig.dbName');
+        host = config.get('Translate.prodDBConfig.host');
+        port = config.get('Translate.prodDBConfig.port');
+        break;
+    default:
+        dbName = config.get('Translate.devDBConfig.dbName');
+        host = config.get('Translate.devDBConfig.host');
+        port = config.get('Translate.devDBConfig.port');
+        break;
+}
+// create a server instance
+var serverInstance = new mongo.Server(host, port, {auto_reconnect: true});
+var db = new mongo.Db(dbName, serverInstance);
 
 // connect to database server
 db.open(function(err, dbref) {
@@ -20,12 +40,19 @@ var validateErr = function(err, callback) {
     callback(err);
 }
 
+var validateValue = function(val) {
+    return !val;
+}
+
 exports.searchTranslate = function(data, callback) {
     db.collection('trans', function(err, dataCollection) { 
         dataCollection.findOne(data, function(err, item) {
-            if (item) {
-                var strJSON = '{"text":"' + item.text + '"}';
-                callback("", JSON.parse(strJSON));
+            if (!err) {
+                strJSON = '';
+                if (!validateValue(item)) {
+                    strJSON = JSON.parse('{"text":"' + item.text + '"}');
+                }
+                callback("", strJSON);
             } else {
                 validateErr(err, callback);
             }
@@ -35,10 +62,13 @@ exports.searchTranslate = function(data, callback) {
 
 exports.addTranslate = function(data, callback) {
     db.collection('trans', function(err, dataCollection) { 
-        dataCollection.insert(data, function (err, result) {
+        dataCollection.insert(data, function (err, item) {
             if (!err) {
-                var strJSON = '{"text":"' + result[0].text + '"}';
-                callback("", JSON.parse(strJSON)); 
+                strJSON = '';
+                if (!validateValue(item)) {
+                    strJSON = JSON.parse('{"text":"' + item[0].text + '"}');
+                }
+                callback("", strJSON);
             } else {
                 validateErr(err, callback);
             }

@@ -9,7 +9,7 @@
 	
 3. Run npm [install mongodb --save] to use as our database.
 
-	To start MongoDB on your unit. You need to setup MongoDB v3.4.1. Please see documentation below for your reference,
+	To start MongoDB on your unit. You need to setup MongoDB v3.4.1. Please see references below.
 	(https://www.mongodb.com/download-center#community)
 	(https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 

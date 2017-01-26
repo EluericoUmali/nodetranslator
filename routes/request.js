@@ -8,13 +8,13 @@ exports.getRequest = function(params, callback) {
         var handler = function(err, res) {
             if (err)
                 return set(err);
-            var obj;
-            try {
-                obj = JSON.parse(res.body);
-            } catch(e) {
-                set(e);
-            }
-            set(null, obj);
+                var obj;
+                try {
+                    obj = JSON.parse(res.body);
+                } catch(e) {
+                    set(e);
+                }
+                set(null, obj);
         };
         if (params.get) {
             request.get(url, handler);

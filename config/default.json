@@ -1,9 +1,20 @@
 {
   "Translate": {
-    "dbConfig": {
+    "envi": "dev",
+    "devDBConfig": {
       "host": "localhost",
       "port": 27017,
       "dbName": "dev"
+    },
+    "testDBConfig": {
+      "host": "localhost",
+      "port": 27017,
+      "dbName": "test"
+    },
+    "prodDBConfig": {
+      "host": "localhost",
+      "port": 27017,
+      "dbName": "prod"
     },
     "port": 3000,
     "Yandex": {
