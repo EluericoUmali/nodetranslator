@@ -1,0 +1,14 @@
+{
+  "Translate": {
+    "dbConfig": {
+      "host": "localhost",
+      "port": 27017,
+      "dbName": "translate_check"
+    },
+    "port": 3000,
+    "Yandex": {
+      "url" : "https://translate.yandex.net/api/v1.5/tr.json",
+      "key": "trnsl.1.1.20170124T232652Z.43b7cf05f36ca079.1a20a6f4fe069b08af2d79946b480a46fd730cea"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Translator",
+  "description": "Translator",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "3.x",
+    "mongodb": "2.4.6",
+    "yandex-translate-api": "^1.0.1"
+  }
+}
