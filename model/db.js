@@ -1,16 +1,18 @@
-var config = require('config');
-// include the mongodb module
-var mongo = require('mongodb');
-// create a server instance
-var serverInstance = new mongo.Server(config.get('Translate.dbConfig.host'), config.get('Translate.dbConfig.port'), {auto_reconnect: true});
+var config = require('config'),
+    mongo = require('mongodb'), // include the mongodb module
+    serverInstance = new mongo.Server(config.get('Translate.dbConfig.host'), 
+                                        config.get('Translate.dbConfig.port'), 
+                                        {auto_reconnect: true}); // create a server instance
+ 
+var dbName = config.get('Translate.dbConfig.dbName'), // retrieve a database reference
+    db = new mongo.Db(dbName, serverInstance); 
 
-var dbName = config.get('Translate.dbConfig.dbName');
-// retrieve a database reference
-var db = new mongo.Db(dbName, serverInstance);
 // connect to database server
 db.open(function(err, dbref) {
     if(!err) {
         console.log("Connected to "+ dbName +" database");
+    } else {
+        console.log("Please run mongo db to connect to the database");
     }
 });
 

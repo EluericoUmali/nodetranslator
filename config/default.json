@@ -3,7 +3,7 @@
     "dbConfig": {
       "host": "localhost",
       "port": 27017,
-      "dbName": "translate_check"
+      "dbName": "dev"
     },
     "port": 3000,
     "Yandex": {

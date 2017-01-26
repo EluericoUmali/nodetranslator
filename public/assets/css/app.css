@@ -1,0 +1,15 @@
+.container {
+    width: 408px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 100px;
+    position: absolute;
+    height: 185px;
+}
+.container p{
+	text-align: left;
+	text-transform: uppercase;
+	font-weight: 800;
+	margin-bottom: 20px;
+}
