@@ -18,7 +18,7 @@
 1. Run [mongo.exe] and [mongod.exe] or follow steps from the docu below on how to configure MongoDB service.
 	(https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 
-2. Using git bash or cmd. Run node server.js. The app can accessed at (http://127.0.0.1:3000/trans)
+2. Using git bash or cmd. Run [node server.js]. The app can accessed at (http://127.0.0.1:3000/trans)
 
 3. The return value will be displayed in a console or git bash.
 
