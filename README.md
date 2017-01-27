@@ -3,7 +3,7 @@
 ## Requirements: ##
 
 ## Download packages/Install Dependencies ##
-1. Run [npm install express --save] to install express.
+1. Run *npm install express --save* to install express.
 
 2. Install config module. Run [npm install config] to organize configurations.
 
