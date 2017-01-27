@@ -2,7 +2,7 @@
 
 ## Requirements: ##
 
-## Download packages/Install Dependencies ##
+## Download packages ##
 1. Run *npm install express --save* to install express.
 
 2. Install config module. Run *npm install config* to organize configurations.
@@ -27,6 +27,8 @@
 2. Using git bash or cmd. Run *node server.js*. The app can accessed at http://127.0.0.1:3000/trans
 
 3. The return value will be displayed in a console or git bash.
+
+4. You can set up the database in the config folder > default.json.
 
 ## Testing ##
 
