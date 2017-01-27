@@ -7,13 +7,15 @@
 
 2. Install config module. Run *npm install config* to organize configurations.
 
-3. Install mocha module for testing simply run *npm install --save-dev mocha*
+3. Install request module. Run *npm install request* to organize configurations.
 
-4. Install supertest module for testing http. Run *npm install --save-dev supertest*
+4. Install mocha module for testing simply run *npm install --save-dev mocha*
 
-5. Install should to unit test it accurately. Run *npm install should --save-dev*
+5. Install supertest module for testing http. Run *npm install --save-dev supertest*
 
-6. Run npm *install mongodb --save* to use as our database.
+6. Install should to unit test it accurately. Run *npm install should --save-dev*
+
+7. Run *npm install mongodb --save* to use as our database.
 
 	To start MongoDB on your unit. You need to setup MongoDB v3.4.1. Please see references below.
 	https://www.mongodb.com/download-center#community

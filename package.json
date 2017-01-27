@@ -4,13 +4,13 @@
   "main": "server.js",
   "dependencies": {
     "body-parser": "*",
-    "express": "3.x",
-    "mongodb": "1.1.8",
+    "express": "^3.21.2",
+    "mongodb": "^1.1.8",
     "yandex-translate-api": "^1.0.1"
   },
   "devDependencies": {
     "mocha": "^3.2.0",
-    "should": "^11.1.2",
+    "should": "^11.2.0",
     "supertest": "^2.0.1"
   },
   "scripts": {
