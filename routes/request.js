@@ -31,7 +31,7 @@ exports.getRequest = function(params, callback) {
                     text: params.text,
                     key: apiKey,
                     format: 'text',
-                    lang: params.from + '-' + params.to
+                    lang: params.lang
                 }
             }, set);
         };
@@ -40,16 +40,17 @@ exports.getRequest = function(params, callback) {
         };
     }
 
-    var arr = {};    
-    arr.oldtext = params.text;
-    arr.lang = params.from +'-'+params.to;
-    dbModel.searchTranslate(arr, function(err, data){
+    // var arr = {};  
+    params.oldtext = params.text;
+    delete params.text;
+    params.lang = params.from +'-'+params.to;
+    dbModel.searchTranslate(params, function(err, data){
         if (!data) {
             var callTranslate = getDetails(config.get('Translate.Yandex.key'));
             callTranslate.pullTranslate(params, function(err, res) {
                 if (res.code === 200) {
-                    arr.text = res.text.join();
-                    dbModel.addTranslate(arr, function(err, data){
+                    params.text = res.text.join();
+                    dbModel.addTranslate(params, function(err, data){
                         callback("", data);
                     });
                 } else {

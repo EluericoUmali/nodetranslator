@@ -45,7 +45,7 @@ var validateValue = function(val) {
 }
 
 exports.searchTranslate = function(data, callback) {
-    db.collection('trans', function(err, dataCollection) { 
+    db.collection('trans', function(err, dataCollection) {
         dataCollection.findOne(data, function(err, item) {
             if (!err) {
                 strJSON = '';
