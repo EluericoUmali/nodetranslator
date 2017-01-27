@@ -40,7 +40,6 @@ exports.getRequest = function(params, callback) {
         };
     }
 
-    // var arr = {};  
     params.oldtext = params.text;
     delete params.text;
     params.lang = params.from +'-'+params.to;
