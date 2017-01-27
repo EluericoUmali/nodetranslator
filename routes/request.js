@@ -48,10 +48,7 @@ exports.getRequest = function(params, callback) {
             var callTranslate = getDetails(config.get('Translate.Yandex.key'));
             callTranslate.pullTranslate(params, function(err, res) {
                 if (res.code === 200) {
-                    arr = {};
                     arr.text = res.text.join();
-                    arr.oldtext = params.text;
-                    arr.lang = params.from + '-' + params.to; 
                     dbModel.addTranslate(arr, function(err, data){
                         callback("", data);
                     });
