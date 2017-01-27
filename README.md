@@ -7,7 +7,7 @@
 
 2. Install config module. Run *npm install config* to organize configurations.
 
-3. Install request module. Run *npm install request* to organize configurations.
+3. Install request module. Run *npm install request* to follow redirects.
 
 4. Install mocha module for testing simply run *npm install --save-dev mocha*
 
