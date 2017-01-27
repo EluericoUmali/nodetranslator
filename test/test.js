@@ -8,9 +8,6 @@ app.get('/trans', function(req, res) {
   res.send('ok');
 });
 
-
-var value = { "from":"en","to":"en","text":"Hello"};
-
 describe('testing node translator', function() {
     it('should return code 200', function(done) {
         request(app)
